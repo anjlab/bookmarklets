@@ -5,7 +5,12 @@
 		document.getElementsByTagName('head')[0].appendChild(s);
 	}
 
-	setTimeout(function(){	// wait until jQuery loaded
+	var waitForJQueryID = setInterval(function(){	// wait until jQuery loaded
+		if(typeof jQuery=='undefined') {
+			return;
+		}
+
+		clearInterval(waitForJQueryID);
 
 		var projects = new Array();
 
